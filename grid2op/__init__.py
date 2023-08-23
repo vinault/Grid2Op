@@ -12,7 +12,7 @@ Grid2Op
 
 """
 __version__ = '1.9.3'
-
+print("Artelys version of Grid2Op")
 __all__ = [
     "Action",
     "Agent",

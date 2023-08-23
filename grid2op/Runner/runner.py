@@ -9,7 +9,7 @@
 import os
 import warnings
 import copy
-from multiprocessing import Pool
+from multiprocessing import Pool, get_context
 from typing import Tuple, Optional, List, Union
 
 from grid2op.Environment import BaseEnv
@@ -1000,7 +1000,7 @@ class Runner(object):
                             add_detailed_output,
                             add_nb_highres_sim)
                 
-            with Pool(nb_process) as p:
+            with get_context("spawn").Pool(nb_process) as p:
                 tmp = p.starmap(_aux_one_process_parrallel, lists)
             for el in tmp:
                 res += el
